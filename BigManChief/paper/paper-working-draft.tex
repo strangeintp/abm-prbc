@@ -1,0 +1,378 @@
+\documentclass[11pt,oneside,a4paper,onecolumn]{article}
+\usepackage[american]{babel}
+\usepackage{wrapfig}
+% This is where the bibliography stuff needs to happen
+\usepackage[style=apa,backend=biber]{biblatex}
+\DeclareLanguageMapping{english}{american-apa}
+%\addbibresource{mmorefs.bib}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes} % context sensitive quotes ---makes this look good
+\usepackage[pdftex]{graphicx}
+\usepackage{xfrac}
+\usepackage{cleveref}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{mdwlist}
+\usepackage[section]{placeins}
+
+\begin{document}
+
+\title{Growing Chiefdoms from the Bottom-up (Part I): Hunter-Gatherer trajectories}
+
+\author{Vince Kane\\
+George Mason University\\
+Term Project, CSS 620, Fall 2014\\
+vkane2@gmu.edu}
+
+\maketitle
+
+\begin{abstract}
+I propose that the dual-processual model (Blanton et al 1996) generates complexity from hunter-gatherer societies when conjoined with Johnson's theory of scalar stress in the presence of societal problems that may be addressed with collective action solutions.
+Specifically, corporate processes establish culture norms for reinforcing collective action in large aggregations, to more effectively address environmental stressors (resource periodicity or unpredictability, conflict with neighbors, etc).
+However, larger populations experience scalar stress limiting the utility of the collective action, and societies that culturally adapt to accept hierarchical control, ceding control of common pool resources to leaders, may overcome the scalar stress and more effectively address the collective action problem(s) (Johnson 1982).  
+Signalling strategies for establishing clear leadership to overcome scalar stress manifest as the "network" mode of the dual-processual model.
+If these two processes are sufficient to generate social complexity, a corresponding model assuming scalar stress should be able to reproduce non-linear scaling of space use (Hamilton et al 2007a), more efficient use of land (Spencer 2009), and \~3.5 branching ratio of Horton orders (Hamilton et al 2007b).
+\end{abstract}
+
+\section{Introduction}
+My longer-term objective is to develop a simulation modeling the evolution of social complexity - specifically, one in which chiefdoms emerge endogenously.  By endogenously, I mean that chiefdoms are never explicitly modeled, but that the simulated societies exhibit the ethnographically-documented features that chiefdoms typify: one or two tiers of control hierarchy and higher levels of social stratification and inequality than found in hunter-gatherer societies.
+
+This is no small task.  As a first step towards that goal, I believe that one must first adequately model the hunter-gatherer societies from which chiefdoms emerge (confined to "pristine" emergence).
+
+Feinman 1995: "Adequate explanations require a focus on the dynamics between internal (societal) and external factors, not an exclusive concentration on either one at the exclusion of the other."\\
+
+"viable explanations of change must ultimately unravel the interplay between human strategies and socio-environmental opportunities and stresses."
+
+Ames (2010) adopts the perspective that inequality and social stratification are the "natural" order, being biologically rooted in primate dominance-seeking and rank-forming instincts, and that it might be more appropriate to consider egalitarianism as an evolutionary adaptation (either culturally or biologically) and to ask how and why it arose.  [recent article in Science] supports this perspective, arguing that certain physical and behavioral features of anatomically modern humans such as facial structure and delayed puberty indicate a process of "self-domestication"; i.e., the repression of aggressive tendencies and promotion of prosocial behaviors.  Like Binford (2001) and Kelly (1995), amongst others, Ames (2010) promotes the typical complexity theoretic view that a wide variety of hunter-gatherer trajectories on the inequality/egalitarian spectrum are to be expected as a result of initial condition and path dependency, and complex interactions with the environment.
+
+Ames (2010) follows Boehm (1993) in identifying an egalitarian ethos as more likely to be a cultural adaptation of small-scale societies (hunter-gatherers and horticulturalists) -- an aberration when viewed on a continuum of social complexity from non-human primates and early hominids to settled agrarian societies.  Boehm (1993) offers that intentional leveling (active enforcement of an egalitarian ethos) acts to limit scale, rather than being the product of it, and would explain why social scales remained small for most of anatomically modern human history despite "material conditions that could have supported far larger agglomerations".  Boehm terms this "reverse dominance hierarchy" - the group exerts dominance over an erstwhile leader. \footnote{This type of behavior is not limited to hunter-gatherer societies of course; viz. the famous example Julius Caesar's assassination by the Roman senate.}
+
+\subsection{Proposed general model}
+Collective action problem(s) $\Rightarrow$ Corporate strategies $\Rightarrow$ Inefficiencies as scope grows $\Rightarrow$ network strategies (hierarchy) $\Rightarrow$ Inequality and other characteristics of social complexity
+
+\subsection{A Review of Relevant Simulation Efforts}
+
+A number of simulation efforts have looked at 
+\begin{enumerate}
+	\item Powers and Lehmann 2014 - cultural evolution with collective action, dispersal and hierarchy tolerance thresholds
+	
+	\item Smith and Choi 2006 - emergence of inequality in small-scale societies; ABM approach; primarily game theoretical approach; patch populations as agents
+	
+	\item Thomas and Mark 2014 - network density; structural holes
+	
+	\item Henrich and Boyd 2008 - ABM evolutionary game theoretic model
+	
+	\item Wirtz and Lemmen 2003; Lemmen 2013 - system dynamics models of neolithic transition.
+	
+\end{enumerate}
+
+\subsection{A minimally viable model for a HG baseline} 
+
+\section{Figures}
+
+\begin{figure}[htp]
+ \centering
+  \includegraphics[width=1.0\textwidth]{homerange.jpg}
+\caption[ ]{Log-log of home range area vs population. Hamilton et al 2007a}
+ \label{nonlinearhomerange}
+\end{figure}
+
+\begin{figure}[htp]
+ \centering
+  \includegraphics[width=1.0\textwidth]{scalarstress.jpg}
+\caption[ ]{Performance and Stress vs Group Size. Johnson 1982}
+ \label{scalarstress}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Questions this model will try to answer}
+\begin{itemize}
+	\item At a first pass, produce metrics of complexity conforming to empirical (space use, fractality of grouping).  Do they agree with the aggregate empirical treand?  
+	\item Do simulated trophic-specific scenarios (e.g. terrestrial vs. aquatic) agree with corresponding empirical data?
+	\item If successful with that, address follow-on questions:
+	\begin{itemize}
+		\item Does the model exhibit regimes of the adaptive cycle?
+		\item Do some culture attributes track together?  E.g., network mode and intergenerational wealth transmission.
+		\item Test Carneiro's circumscription theory
+		\item Test theories of resource surplus 
+		\item Will it produce chiefdoms?  States?
+		\item side question - does space use power law extend to more advanced societies?  if so, does the model reproduce it?
+	\end{itemize}
+\end{itemize}
+
+\section{Model Description and Methodology}
+
+\subsection{Themes}
+
+Scalar stress (Johnson 1982) \\
+Dual-processual (Blanton et al 1996)  \\
+
+\subsection{Model Overview}
+Spatial: 250 km on a side, cells of 1 km\\
+Temporal:  Resolution finer than a year - need to incorporate seasonality\\
+Resources:  flat?  or peaked landscape?\\
+Agents:
+\begin{itemize*}
+	\item Collect food
+	\item redistribute food
+	\item marry
+	\item reproduce
+	\item interact to solve collective action problems?
+	\item adjust culture attributes
+	\item innovate?
+	\item specialize?
+\end{itemize*}
+Culture adapts through simulated annealing
+
+A band of agents are introduced in one edge of the map.
+
+\subsection{Model Details}
+
+\subsubsection{Environment}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|}
+	\hline 
+	\textbf{environment attribute} & • \\ 
+	\hline 
+	annual average resource & • \\ 
+	\hline 
+	peak seasonal variation & • \\ 
+	\hline 
+	patchiness & spatial resource heterogeneity \\
+	\hline
+	\end{tabular}
+	\label{environment attributes}
+	\caption{Environment Attributes} 
+\end{table}
+
+Calibration:  metabolic requirements, maximum sustainable population (?  for a given tech level?  or HG societies?  need to look at the Nicholas paper referenced by Spencer, and other lit on metabolic requirements.)
+
+\subsubsection{Temporal Variation in Resource Availability}
+
+I will eschew the "carrying capacity" ecological model of environmental resource availability or society population.  As both Bindford 2001 and Kelly 1995 have noted, population-pressure driven models of hunter-gatherer societies (which use carrying capacity as their basis) assume that those societies are in equilibrium with their environment; that somehow these societies implicitly or explicitly know where the equilibria operating points are and work to stay there.  
+
+\subsubsection{Agent attributes}
+See Table \ref{tab:culture_attributes}.\\
+\begin{table}[htp]
+	\centering
+	\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{culture attribute} & \textbf{description} \\ 
+	\hline 
+	corporate mode & to what extent is the corporate strategy exercised:\\
+	& influences how often basal groups aggregate\\
+	& to exercise collective action \\ 
+	\hline 
+	network mode & tolerance of/submission to hierarchical control\\ 
+	\hline
+	inheritance & tolerance of intergenerational wealth transmission \\
+	\hline
+	kin selection & span of the kinship tree.  incest taboo? \\
+	\hline
+	polygyny &  \\
+	\hline
+	GRP2AGGFREQ & How often do Group 2 aggregations occur. \\ 
+	\hline 
+	GRP3AGGFREQ & How often do Group 3 aggregations occur. \\
+	\hline
+	MARRGRPSEL & Endogamous (within Group 2) vs Exogamous \\ 
+	\hline 
+	\end{tabular}
+	\caption{Cultural Attributes} 
+	\label{tab:culture_attributes}
+\end{table}
+
+\FloatBarrier
+
+\subsubsection{Cultural adaptation through simulated annealing }  
+
+{Metropolis algorithm (Metropolis et al 1953)}:
+\begin{enumerate*} 
+	\item Mutate state from $s_{t-1}$ to $s_{t}$.\\
+	\item Calculate the objective/fitness function $E(s)$.\\
+	\item Accept lower energy states outright, otherwise accept with probability $P$.
+\end{enumerate*}
+
+Acceptance probability of thermodynamic free energy given a state $s$:\\
+\begin{equation}
+	\centering
+	P(E_s) = e^{-\frac{\Delta E_s}{kT}}
+\end{equation}
+
+Rather than subjected to an annealing schedule (a vector of temperatures corresponding to a vector of times) as typically done, the algorithm will anneal endogenously.  The temperature T at any time step is the amount of social discord (Bahr and Passerini 1998), representing scalar stress, unhappiness with the current state of affairs, distance between the actual cultural state and the preferred ideal, etc.  Probably needs to be normalized to population size.  Need to work out how these factors contribute to T; may need to assume some things (e.g., relative weighting between scalar stress and socio-cognitive dissonance).\\
+
+Agent contributions to social temperature are driven first by nuclear family health, then by differentials in prestige.
+
+The Boltzmann constant $k$ will be selected, possibly calibrated (e.g. to achieve discernible results in practical runtimes).
+
+The state $s$ is the set of all individual cultural ideals in the group being annealed (TBD - what are the boundary conditions of the group?).
+
+$E$, the energy of state $s$, is the total misalignment of cultural ideals between individuals in a peer group.
+
+Cultural annealing occurs at 3 temporal and group size resolutions:  1) most frequently, on a routine basis (each simulation step) as a result of the day-to-day interaction of society members at their most dispersed (band level), 2) less frequently as a result of periodic band aggregations, and 3) least frequently, regional aggregations.
+
+A mutator function $M$ [mu] moves the society (its individuals) from state $s_t$ to $s_{t+1}$.  I have yet to identify the details of this, but will be some combination of stochasticity and movement towards a global average, possibly weighted by prestige or leadership position in the hierarchy.
+
+
+
+%\begin{table}
+%	\centering
+%	\begin{tabular}{|c|c|}
+%	\hline 
+%	\textbf{indivdual attribute} & • \\
+%	\hline 
+%	foraging skill & • \\ 
+%	\hline 
+%	intensification skill & • \\ 
+%	\hline 
+%	preservation skill & • \\ 
+%	\hline 
+%	prestige & • \\ 
+%	\hline 
+%	• & • \\ 
+%	\hline 
+%	• & • \\ 
+%	\hline 
+%	• & • \\ 
+%	\hline 
+%	• & • \\ 
+%	\hline 
+%	\end{tabular}
+%	\label{individual attributes}
+%	\caption{Individual Attributes}
+%\end{table}
+
+\subsection{Output metrics, Calibration, and Validation}
+
+\subsubsection{Nonlinear scaling of space use}
+reference (Hamilton et al 2007a)\\
+$H = H_0N^\beta,$\\
+\\
+where:\\
+\\
+$H \equiv$ Home range of the group \\
+$H_0 \equiv$ Home range required to meet metabolic demand for a single individual, $\mu = 4.14 km^{-2}, \sigma ~= 1.5 km^{-2}$ \\
+$N \equiv$ group population \\
+$\beta \equiv$ scaling exponent = 0.7 \\
+\\
+
+\textit{refer to Figure 1 of Hamilton et al. 2007a}
+
+\subsubsection{Number of hierarchical levels, branching Ratio of Horton orders}
+The complex structure of hunter-gatherer social networks (Hamilton et al 2007b)\\
+Study of 339 hunter-gatherer societies, found branching ratios of hierarchical Horton orders $\omega$\\
+
+$B = \frac{N_{\omega-1}}{N_{\omega}}$ with $ 3.5 \leq B \leq 4.0$
+
+\subsubsection{Band size}
+
+\subsubsection{Genetic Relatedness of bands}
+Hill et al 2011
+
+\subsubsection{Other metrics}
+\begin{itemize}
+	\item Fitness of the society:  health?  population?  actual population vs. maximum supportable population (Spencer 2009)?
+
+	\item Measures of inequality; correlation with corporate and network modes?
+\end{itemize}
+
+\section{Results}
+
+\section{Discussion}
+
+\subsection{Future Work; Extending the model}
+
+\begin{itemize}
+	\item Division of labor and specialization
+	
+	\item technology, goods production, and trade
+	
+	\item further development/integration of scalar stress and collective action mechanisms
+	
+	\item territoriality, property rights, violent conflict
+\end{itemize}
+
+\section{Conclusion}
+
+\section{Lit Review}
+
+Bits from Johnson 1982:
+\begin{itemize}
+	\item "Increase in sequential hierarchy implies increasing difficulty in the decision
+process as consensus must be reached at a greater number of operational levels. [...] One might expect, for example, that decision complexity in the realm of subsistence organization is inversely related to resource predictability. If this is the case, one might further expect that the integrative potential of sequential hierarchy is directly related to resource predictability (other things being equal). " \\
+
+	\item "Gross (1979,334) argues that both social and ceremonial organization serve integrative functions that allow maintenance of large-group size for the horticultural period of the annual subsistence cycle."
+
+Compare to the corporate mode of the dual-processual theory.
+
+	\item "Passive stylistic signaling of individual subgroup affiliation, etc., may reduce
+the active communications load associated with larger aggregations."
+
+Compare to the network mode of the dual-processual theory.
+
+	\item Feinman 1995 on variation in org structure w/ population:  "In other words, for populations of equivalent size, the levels of interaction and cooperation necessary at the community scale are apprently far greater per capita than at the (more dispersed) societal scale."
+
+	\item Feinman 1995 on inequality: "Attention must be placed both on those mechanisms in nonstratified societies that have served to level extant inequities before they become institutionalized, as well as on the internal and/or external conditions that work to negate those leveling strategies and sanctions so that existent inequalities are permitted to become more institutionalized.  The institutionalization process cannot occur unless social and ideological conceptions are transformed." 
+
+	\item Feinman 1995 "As Spencer (1993:48) has argued: "in certain . . . situations, the survival of individuals may become dependent on the success of the group, and the latitude for individual actions such as abandoning a leader is consequently constrained." Factions form because followers perceive benefits and rewards (material, political, or spiritual) for their support. Therefore, the functions served by emergent leaders (in warfare, dispute resolution, the aversion of subsistence risk, social reproduction) and the conditions to which they respond cannot be entirely ignored in the consideration of the institutionalization of inequality. In this regard, the demographic relationships reviewed
+above between community size and organization are both interesting and relevant (see also Johnson 1982). That is, as integration, dispute resolution, and mutual defense become greater concerns, the willingness to endure a self-serving leader also may grow. Likewise, because these issues clearly and simultaneously involve local as well as extraregional relations, anthropologists cannot any longer ignore that "evolution is a spatial as well as a temporal process" (Kristiansen 1991:24)."
+
+	\item Johnson 1982 "...the association of leadership functions with high status would facilitate implementation of leader decisions. Status ascription through inheritance would similarly resolve problems of leadership recruitment, training, and continuity that would otherwise inhibit effective decision making in the long term."
+
+	\item Blanton and Fargher 2008:  not sure whether useful
+
+	\item Earle 1989 "Elites justified their positions with reference to external sources of power inaccessible to others"
+
+	\item Cummings, Huber, and Arendt 1974:  Review of literature establishing empirical basis of optimal group sizes.
+
+	\item Mayhew and Levinger 1976: emergence of oligarchy in human interaction.  Random interactions predict power inequality.
+	
+	\item Shennan 2001 - Demography and Cultural Innovation
+	
+	\item Pennington 2001 in Hunter-Gatherers: an Interdisciplinary Perspective\\
+	Demography of HGs, birth and death rates
+	
+	\item Jenike 2001 in Hunter-Gatherers: an Interdisciplinary Perspective\\
+	Nutritional ecology
+	
+	\item Henrich 2004 - Cultural group selection, coevolutionary processes, and large-scale cooperation.  
+	"However, I argue that the nature of our cultural transmission capacities, and of human psychology more generally, creates stable behavioral equilibria consisting of combinations of cooperation and punishment that are not available to genetic evolutionary processes in a cultural species." \\
+	talks also about prestige-biased transmission - copying others who are successful as indicated by conferred prestige \\
+	cultural evolution is likely to proceed much faster than genetic evolution, since it spreads horizontally
+	
+
+
+\end{itemize}
+
+\section{To Read}
+
+\begin{itemize}
+
+	\item Hill et al., 2011 (K.R. Hill, R.S. Walker, M. Bozicevic, J. Eder, T. Headland, B. Hewlett, et al.)\\
+Co-residence patterns in hunter-gatherer societies show unique human social structure\\
+Science, 331 (2011), pp. 1286–1289 
+
+	\item Chagnon, 1975\\
+    Genealogy, solidarity, and relatedness: limits to local group size and patterns of fissioning in an expanding population\\
+    Yearbook of Physical Anthropology, 19 (1975), pp. 95–110
+
+	\item Chagnon, 1976\\
+    Fission in an Amazonian tribe\\
+    New York Academy of Sciences, 16 (1976), pp. 14–18
+    
+   \item  Chagnon, 1979\\
+    Mate competition, favoring close kin, and village fissioning among the Yanomamö Indians\\
+    N.A. Chagnon, W.A. Irons (Eds.), Evolutionary Biology and Human Behavior, Duxbury Press, North Scituate, MA (1979)
+    
+    \item Pearce 2014 - Modelling mechanisms of social network maintenance in hunter–gatherers
+    
+    \item Grove 2009 - HG mobility patterns
+    
+    \item Whallon 2006 - Social networks and information: Non-“utilitarian” mobility among hunter-gatherers\\
+    "Rather, the mobility involved in the establishment and maintenance of regional social networks and the flow of critical information through them is a varied combination of individual, family, or ritual/ceremonial movements, few or none of which much resemble typical logistical or residential foraging movements."
+
+\end{itemize}
+
+\end{document}
